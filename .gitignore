@@ -1,3 +1,10 @@
-.env*
 
+# Hide hidden files and cache files
+.*
+*__pycache__*
+
+# exception for git file
+!.gitignore
+
+#tokens used for bot
 tokens.py
