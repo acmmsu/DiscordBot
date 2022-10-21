@@ -15,14 +15,14 @@ class test_encrypt(TestCase):
         
         # Set up test
         arg_str = "Geeks For Geeks"
-        expected = "Gsree keFGsKoe"
+        expected = "Gsree  keFGskoe"
         actual = encrypt_basic(arg_str)
         
         self.assertEqual(actual, expected)
     
     def test_decrypt(self):
         # Set up test
-        arg_str = "Gsree keFGsKoe"
+        arg_str = "Gsree  keFGskoe"
         expected = "Geeks For Geeks"
         actual = decrypt_basic(arg_str)
         
