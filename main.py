@@ -1,5 +1,7 @@
 import discord
 
+from encrypt import encrypt_basic, decrypt_basic
+
 from tokens import TOKEN
 
 def main():
@@ -17,12 +19,19 @@ def main():
         print(f'We have logged in as {client.user}')
 
     @client.event
-    async def on_message(message):
+    async def on_message(message: discord.Message):
         if message.author == client.user:
             return
 
-        if message.content.startswith('$hello'):
+        # Get message command 
+        if message.content.startswith('/hello'):
             await message.channel.send('Hello!')
+        
+        if message.content.startswith('/encrypt'):
+            await message.channel.send(encrypt_basic(message.content[8:]))
+        
+        if message.content.startswith('/decrypt'):
+            await message.channel.send(decrypt_basic(message.content[8:]))
             
     @client.event
     async def on_message_edit(before: discord.Message, after: discord.Message):
