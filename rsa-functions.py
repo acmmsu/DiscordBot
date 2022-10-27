@@ -77,7 +77,7 @@ def generate_keys(p:int, q:int):
     #where E is the public exponent and k is a natural number uses the Extended Euclidean Algorithm.
     private = find_private_exponent(public, p, q)
     modulus = p * q
-    print("Your public key is {}. Your public modulus is {}. Your private key is {}.".format(public, modulus, private))
+    return "Your public key is {}. Your public modulus is {}. Your private key is {}.".format(public, modulus, private)
 def encrypt_decrypt (key:int, modulus:int, message:int):
     #takes in a key, the public modulus (pq), and a message (a natural number less than the modulus).
     #can be used for encryption or decryption--operations are the same either way.
