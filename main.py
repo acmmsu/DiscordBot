@@ -36,7 +36,8 @@ def main():
             
         if message.content.startswith('/rsa-generate-keys'):
             await message.channel.send(generate_keys(rand_prime(), rand_prime()))
-        
+        # Takes in a key, modulus, and message, in that order, separated by single spaces, and applies the encryption/decryption
+        # algorithm to the result.
         if message.content.startswith('/rsa-encrypt') or message.content.startswith('/rsa-decrypt'):
             
             input_after_command = message.content[13:].split()
