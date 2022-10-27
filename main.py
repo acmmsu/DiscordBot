@@ -1,6 +1,7 @@
 import discord
 
 from encrypt import encrypt_basic, decrypt_basic
+from rsa-functions import gen_keys, encrypt_decrypt
 
 from tokens import TOKEN
 
@@ -32,6 +33,9 @@ def main():
         
         if message.content.startswith('/decrypt'):
             await message.channel.send(decrypt_basic(message.content[8:]))
+            
+        if message.content.startswith('/rsa-generate-keys'):
+            await message.channel.send(gen_keys())
             
     @client.event
     async def on_message_edit(before: discord.Message, after: discord.Message):
